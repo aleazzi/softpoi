@@ -10,12 +10,13 @@ public abstract class POI {
 	private String calle;
 	private String calle_interseccion;
 	
-	public Boolean esValido(){
+	public boolean esValido(){
 		return !(this.nombre == null || 
 				 this.latitud > 90 || this.latitud < -90 ||
 				 this.longitud > 180 || this.longitud < -180);
 	}
-	public Boolean estaCercaDe(POI otroPOI){
+	public boolean estaCercaDe(POI otroPOI){
+		
 		return true;
 	}
 }
