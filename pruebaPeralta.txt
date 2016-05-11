@@ -1,1 +1,4 @@
 Prueba de subida de archivo
+sos un ladri!
+intenta hacerle un pull...
+dps para borrarlo si queres, logueate desde github, y cuando le das clic al arcihvo a la derecha te aparece un lapicito para editarlo y un tachito para borrarlo!
