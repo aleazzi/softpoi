@@ -8,7 +8,7 @@ public class ParadaColectivo extends POI {
 		super.latitud = latitud;
 		super.longitud = longitud;		
 	}
-	public Boolean estaDisponible(){
+	public boolean estaDisponible(){
 		return true;
 	}
 }
