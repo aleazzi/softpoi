@@ -1,7 +1,7 @@
 
 public class ParadaColectivo extends POI {
-	private String empresa;
-	private int numeroDeLinea;
+	//private String empresa;
+	//private int numeroDeLinea;
 	
 	public ParadaColectivo(String nombre, double latitud, double longitud) {
 		super.nombre = nombre;

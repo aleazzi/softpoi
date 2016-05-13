@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 
+@SuppressWarnings("unused")
 public class Test {
 
 	/**
