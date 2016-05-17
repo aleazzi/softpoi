@@ -17,7 +17,7 @@ public class Test {
 		System.out.println("-------------------------");
 		//IntelliJ Idea
 		
-		/*
+		
 		// TODO Auto-generated method stub
 		System.out.println("Aca empieza la verdad de la milanga...");
 		ParadaColectivo parada1 = new ParadaColectivo("",90.0f,91);
@@ -27,7 +27,7 @@ public class Test {
 		ParadaColectivo obelisco = new ParadaColectivo("Obelisco",-34.603075, -58.381653);
 		ParadaColectivo plazamayo = new ParadaColectivo("Plaza de Mayo",-34.608333, -58.371944);
 		System.out.println("esta a menos metros que el otro? = " + obelisco.estaAMenosDe(plazamayo, 1300));
-		*/
+		
 		
 		
 		/*
@@ -42,7 +42,7 @@ public class Test {
 		}
 		*/
 		
-		
+		/*
 		// *********************************************************************************************
 		// Prueba de clase Banco
 		// *********************************************************************************************
@@ -89,6 +89,7 @@ public class Test {
 		System.out.println("Dia Habil 2: " + bancoFrances.dameUnServicio().getDisponibilidad().get(1).getDia());
 		System.out.println("Dia Habil 2 - Apertura: " + bancoFrances.dameUnServicio().getDisponibilidad().get(1).getHorarios().get(0).getApertura());
 		System.out.println("Dia Habil 2 - Cierre: " + bancoFrances.dameUnServicio().getDisponibilidad().get(1).getHorarios().get(0).getCierre());
+		*/
 	}
 
 }
