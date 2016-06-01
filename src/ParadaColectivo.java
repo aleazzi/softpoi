@@ -14,4 +14,8 @@ public class ParadaColectivo extends POI {
 	public boolean estaDisponible(){
 		return true;
 	}
+//	public boolean estaCercaMio(double latitud, double longitud){
+//		
+//		super.distancia(lat1, lon1, lat2, lon2)
+//	}
 }
