@@ -7,5 +7,5 @@ public class DispositivoConsulta {
 	private String zona;
 	private ArrayList<POI> POIs = new ArrayList<POI>();
 	//private ArrayList<Adminstrador> Admins = new ArrayList<Administrador>();
-	
+	//nuevo
 }
