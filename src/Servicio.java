@@ -1,3 +1,4 @@
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class Servicio {
@@ -37,5 +38,21 @@ public class Servicio {
 		this.disponibilidad.add(objDisponibilidad);
 	}
 	
+	// Esta disponible el servicio si: atiende el dia "unDia" y en el horario "horaActual"
+	public boolean estaDisponible(String unDia, LocalTime horaActual){
+
+		boolean existe = false;
+		
+		for(Disponibilidad unaDisponibilidad : disponibilidad)
+		{
+	    	if (unaDisponibilidad.estaDisponible(unDia, horaActual) ){
+	    		existe = true;
+	    		break;	
+	    	}
+		}
+		
+		return existe;
+
+	}
 	
 }

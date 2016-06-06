@@ -1,3 +1,4 @@
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 
@@ -36,6 +37,23 @@ public class Disponibilidad {
 	// ***************************************************************************
 	public void agregarRangoHorario(RangoHorario objRangoHorario){
 		this.horarios.add(objRangoHorario);
+	}
+	
+	
+	public boolean estaDisponible(String unDia, LocalTime horaActual){
+		boolean existe = false;
+		
+		if(this.dia.equals(unDia)){
+			for(RangoHorario unRangoHorario : horarios)
+			{
+			    if(unRangoHorario.estaDisponible(horaActual)){
+			    	existe = true;
+			    	break;
+			    }
+			}
+		}
+		
+		return existe;
 	}
 	
 	
