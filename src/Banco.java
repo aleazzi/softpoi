@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.time.LocalTime;
 
 public class Banco extends POI {
 	
@@ -80,26 +81,61 @@ public class Banco extends POI {
 	// Metodos
 	// ***************************************************************************
 	
-	public void agregarServicio(Servicio objServicio){
-		this.servicios.add(objServicio);
+	public void agregarServicio(Servicio unServicio){
+		this.servicios.add(unServicio);
 	}
 	
-	public boolean estaDisponible(Servicio objServicio){
+	
+	public boolean estaDisponible(Servicio unServicio){
 		// Pendiente: Hay que ver la logica
-		return true;
+		boolean existe = false;
+	
+		for(Servicio unServicioDisponible : servicios)
+		{
+		    if(unServicioDisponible.getServicio().equals(unServicioDisponible.getServicio())){
+		    	existe = true;
+		    	break;
+		    }
+		}
+		
+		return existe;	
 	}
 	
-	public boolean estaCercaMio(){
+	
+	public boolean estaDisponible(String unServicio){
 		// Pendiente: Hay que ver la logica
-		return true;
+		
+		boolean existe = false;
+		
+		for(Servicio unServicioDisponible : servicios)
+		{
+		    if(unServicioDisponible.getServicio().equals(unServicio)){
+		    	
+		    	
+		    	
+		    	existe = true;
+		    	break;
+		    }
+		}
+		
+		return existe;		
 	}
+
+
+	public boolean estaCercaMio(double latitud, double longitud){
+		if (super.distancia(this.latitud, this.longitud, latitud, longitud) < 500){
+			return true;
+		}
+		return false;
+	}
+
 
 	public String tipoPOI(){
 		// Pendiente: Hay que ver la logica
 		return "ni idea";
 	}
 
-	public Servicio dameUnServicio(){
+	public Servicio dameUnServicio(String servicio){
 		// esto es de prueba
 		return servicios.get(0);
 	}
