@@ -2,12 +2,17 @@
 public class Administrador {
 
 	private String pass;
+	private Servidor serv;
 	
 // ***************************************************************************
 // Setters
 // ***************************************************************************
 	public void setPass(String pass) {
 		this.pass = pass;
+	}
+	
+	public void setServidor (Servidor elServidor) {
+		this.serv = elServidor;
 	}
 	
 // ***************************************************************************
@@ -17,22 +22,25 @@ public class Administrador {
 		return pass;
 	}
 	
+	public Servidor getServidor() {
+		return serv;
+	}
+	
 // ***************************************************************************
 // Metodos
 // ***************************************************************************
 						
-	public boolean cargarPOI(POI unPoi){
+	public void cargarPOI(POI unPOI) {
+		serv.cargarPOI(unPOI);
+	}
+	
+	public boolean modificarPOI(POI unPOI){
 	// Pendiente: Hay que ver la logica
 	return true;
 	}
 	
-	public boolean modificarPOI(POI unPoi){
-	// Pendiente: Hay que ver la logica
-	return true;
-	}
-	
-	public boolean eliminarPOI(POI unPoi){
-	// Pendiente: Hay que ver la logica
+	public boolean eliminarPOI(POI unPOI){
+		serv.eliminarPOI(unPOI);
 	return true;
 	}
 	
@@ -40,4 +48,9 @@ public class Administrador {
 	// Pendiente: Hay que ver la logica
 	return true;
 	}
+	
+	public boolean loguin(){
+		serv.loguin(serv.getcolAdmins(), this);
+	return true;
+	}	
 }
