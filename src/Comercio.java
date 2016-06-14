@@ -5,15 +5,16 @@ public class Comercio extends POI{
 	private String departamento;
 	private String unidad;
 	private String codigoPostal;
-	private Rubro rubro = new Rubro();
+	private Rubro rubro;
 	
 	// ***************************************************************************
 		// Constructor
 		// ***************************************************************************
-		public Comercio(String nombre, double latitud, double longitud) {
+		public Comercio(String nombre, double latitud, double longitud, Rubro unRubro) {
 			super.nombre = nombre;
 			super.latitud = latitud;
-			super.longitud = longitud;		
+			super.longitud = longitud;
+			this.rubro = unRubro;
 		}
 
 		
