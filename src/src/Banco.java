@@ -1,5 +1,6 @@
+package src;
 import java.util.ArrayList;
-import java.time.LocalTime;
+import java.util.Date;
 
 public class Banco extends POI {
 	
@@ -44,8 +45,8 @@ public class Banco extends POI {
 		this.codigoPostal = codigoPostal;
 	}
 	
-	public void setServicios(ArrayList<Servicio> servicios) {
-		this.servicios = servicios;
+	public void setServicios(Servicio unServicio) {
+		this.servicios.add(unServicio);
 	}
 
 	
@@ -85,36 +86,37 @@ public class Banco extends POI {
 		this.servicios.add(unServicio);
 	}
 	
-	
-	public boolean estaDisponible(Servicio unServicio){
+	/*
+	public boolean estaDisponible(Servicio unServicio, Date unDia, String unaHora){
 		// Pendiente: Hay que ver la logica
-		boolean existe = false;
-	
-		for(Servicio unServicioDisponible : servicios)
+		boolean existe = false; 
+		
+		for(Servicio unServicioDelBanco : servicios)
 		{
-		    if(unServicioDisponible.getServicio().equals(unServicioDisponible.getServicio())){
-		    	existe = true;
-		    	break;
+		    if(unServicioDelBanco.getServicio().equals(unServicio.getServicio())){
+		    	if (unServicioDelBanco.estaDisponible(unDia, unaHora)){
+		    		existe = true;
+			    	break;
+		    	}
 		    }
 		}
 		
 		return existe;	
 	}
+	*/
 	
-	
-	public boolean estaDisponible(String unServicio){
+	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
 		// Pendiente: Hay que ver la logica
 		
 		boolean existe = false;
-		
+ 	
 		for(Servicio unServicioDisponible : servicios)
 		{
 		    if(unServicioDisponible.getServicio().equals(unServicio)){
-		    	
-		    	
-		    	
-		    	existe = true;
-		    	break;
+		    	if (unServicioDisponible.estaDisponible(unDia, unaHora)){
+		    		existe = true;
+		    		break;
+		    	}
 		    }
 		}
 		
@@ -130,9 +132,8 @@ public class Banco extends POI {
 	}
 
 
-	public String tipoPOI(){
-		// Pendiente: Hay que ver la logica
-		return "ni idea";
+	public Banco tipoPOI(){
+		return this;
 	}
 
 	public Servicio dameUnServicio(String servicio){

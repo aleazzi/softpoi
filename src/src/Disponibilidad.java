@@ -1,18 +1,20 @@
-import java.time.LocalTime;
+package src;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class Disponibilidad {
 
-	private String dia; // LUN-MAR-MIE-JUE-VIE-SAB-DOM
+	private String dia; // "DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO"
 	private ArrayList<RangoHorario> horarios = new ArrayList<RangoHorario>();
 	
 	
 	// ***************************************************************************
 	// Setters
 	// ***************************************************************************
-	public void setDia(String dia) {
-		this.dia = dia;
+	public void setDia(String unDia) {
+		this.dia = unDia;
 	}
 	
 	public void setHorarios(ArrayList<RangoHorario> horarios) {
@@ -40,13 +42,27 @@ public class Disponibilidad {
 	}
 	
 	
-	public boolean estaDisponible(String unDia, LocalTime horaActual){
+	private String diaDeLaSemana(Date UnDia){
+		String[] dias = {"DOMINGO", "LUNES", "MARTES", "MIERCOLES", "JUEVES", "VIERNES", "SABADO"};
+		int numeroDia = 0;
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(UnDia);
+		numeroDia = cal.get(Calendar.DAY_OF_WEEK);
+		return dias[numeroDia - 1];
+	}
+		
+	
+	public boolean estaDisponible(Date unDia, String horaActual){
 		boolean existe = false;
 		
-		if(this.dia.equals(unDia)){
+		String diaSemana = diaDeLaSemana(unDia);
+		//System.out.println(diaSemana);
+		
+		if(this.dia.equals(diaSemana)){
+			
 			for(RangoHorario unRangoHorario : horarios)
-			{
-			    if(unRangoHorario.estaDisponible(horaActual)){
+			{				
+				if(unRangoHorario.estaDisponible(horaActual)){
 			    	existe = true;
 			    	break;
 			    }

@@ -1,19 +1,19 @@
+package src;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalTime;
 import java.util.Date;
 
 public class RangoHorario {
 	
-	private LocalTime apertura;
-	private LocalTime cierre;
+	private String apertura;
+	private String cierre;
 
 	
 	// ***************************************************************************
 	// Constructor
 	// ***************************************************************************
-	public RangoHorario(LocalTime apertura, LocalTime cierre) {
+	public RangoHorario(String apertura, String cierre) {
 		this.apertura = apertura;
 		this.cierre = cierre;
 	}
@@ -22,11 +22,11 @@ public class RangoHorario {
 	// ***************************************************************************
 	// Setters
 	// ***************************************************************************
-	public void setApertura(LocalTime apertura) {
+	public void setApertura(String apertura) {
 		this.apertura = apertura;
 	}
 	
-	public void setCierre(LocalTime cierre) {
+	public void setCierre(String cierre) {
 		this.cierre = cierre;
 	}
 	
@@ -34,11 +34,11 @@ public class RangoHorario {
 	// ***************************************************************************
 	// Getters
 	// ***************************************************************************
-	public LocalTime getApertura() {
+	public String getApertura() {
 		return apertura;
 	}
 	
-	public LocalTime getCierre() {
+	public String getCierre() {
 		return cierre;
 	}
 	
@@ -46,32 +46,31 @@ public class RangoHorario {
 	// ***************************************************************************
 	// Metodos
 	// ***************************************************************************
-	public boolean estaDisponible(LocalTime horaActual){
+	public boolean estaDisponible(String horaActual){
 		return this.compararHoras(horaActual);
 	}
 	
-	 private boolean compararHoras(LocalTime laHoraActual){
-		//String horaInicial = "13:30";
-		//String horaFinal = "12:20";
+	private boolean compararHoras(String laHoraActual){
 		try{
-			DateFormat dateFormat = new SimpleDateFormat("HH:mm");
-			Date horaIni;
-			Date horaFin;	
-			horaIni = dateFormat.parse(this.apertura.toString());
-			horaFin = dateFormat.parse(this.cierre.toString());
-			if (horaIni.compareTo(horaFin) < 0) {
-			    System.out.println("correcta");
-			    return true;
-			} else {
-			    System.out.println("incorrecta");
-			    return false;
+			DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+			
+			Date dFecha1, dFecha2, dFechaActual;
+			dFecha1 = dateFormat.parse(this.apertura);
+			dFecha2 = dateFormat.parse(this.cierre);
+			dFechaActual = dateFormat.parse(laHoraActual);
+			
+			if ((dFecha1.compareTo(dFechaActual) <= 0) && (dFecha2.compareTo(dFechaActual) >= 0)){
+				//System.out.println("Disponible");
+				return true;
+			}else{
+				//System.out.println("No Disponible");
+				return false;
 			}
-		
-        } catch (ParseException ex) {
-            //Logger.getLogger(Main2.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Posee errores");
-            return false;
-        }
+	   } catch (ParseException ex) {
+	       //Logger.getLogger(Main2.class.getName()).log(Level.SEVERE, null, ex);
+		   System.out.println("Posee errores");
+	       return false;
+	   }
 		
 	 }
 	 

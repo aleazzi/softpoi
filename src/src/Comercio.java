@@ -1,3 +1,4 @@
+package src;
 public class Comercio extends POI{
 	
 	private int altura;

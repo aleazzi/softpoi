@@ -1,0 +1,75 @@
+package test;
+	import org.junit.Test;
+	import static org.junit.Assert.*;
+	
+	import src.*;
+	import java.util.Calendar;
+	import java.util.Date;
+
+public class testBanco {
+
+	@Test
+	public void testDisponibilidadServicio() {
+		//fail("Not yet implemented");
+		System.out.println("Iniciando testDisponibilidadServicio");
+		System.out.println("------------------------------------");
+		
+		
+		// *********************************************************************************************
+		// Prueba de clase Banco
+		// *********************************************************************************************
+		// Creamos el objeto rango1 de la clase RangoHorario.
+		RangoHorario rango1 = new RangoHorario("09:00:00", "13:00:00");
+		RangoHorario rango2 = new RangoHorario("15:30:00", "19:00:00");
+		RangoHorario rango3 = new RangoHorario("00:00:00", "24:59:59");
+		
+		// Creamos el objeto unDia de la clase Disponibilidad y le asignamos valores
+		Disponibilidad unDia = new Disponibilidad();
+		unDia.setDia("SABADO");
+		unDia.agregarRangoHorario(rango1);
+		unDia.agregarRangoHorario(rango2);
+		
+		Disponibilidad otroDia = new Disponibilidad();
+		otroDia.setDia("DOMINGO");
+		otroDia.agregarRangoHorario(rango3);
+
+		Disponibilidad otroDia1 = new Disponibilidad();
+		otroDia1.setDia("MARTES");
+		otroDia1.agregarRangoHorario(rango3);
+		
+		// Creamos un servicio y le asignamos valores.
+		Servicio unServicio = new Servicio();
+		unServicio.setServicio("apertura de cuenta corriente");
+		unServicio.agregarDisponibilidad(otroDia1);
+		
+		Servicio otroServicio = new Servicio();
+		otroServicio.setServicio("apertura de caja de ahorro");
+		otroServicio.agregarDisponibilidad(unDia);
+		otroServicio.agregarDisponibilidad(otroDia);
+		
+		
+		// Creamos el objeto bancoFrances de la clase Banco.
+		Banco bancoFrances = new Banco("BANCO FRANCES", -34.603075, -58.381653);
+		bancoFrances.agregarServicio(unServicio);
+		bancoFrances.agregarServicio(otroServicio);
+		
+		// Mostramos los datos cargados
+		//System.out.println("TipoPOI: " + bancoFrances.tipoPOI());
+		//System.out.println("BANCO: " + bancoFrances.nombre);
+		//System.out.println("Longitud: " + bancoFrances.longitud);
+		//System.out.println("Latitud: " + bancoFrances.latitud);
+		
+		Date hoy = new Date();
+    	Calendar cal = Calendar.getInstance();
+    	cal.setTime(hoy);
+		String horaActual = cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND);
+		
+		
+		
+		
+		//System.out.println("Esta Disponible (apertura de cuenta corriente): " + bancoFrances.estaDisponible("apertura de cuenta corriente", hoy, horaActual));
+		assertEquals("Esta Disponible (apertura de cuenta corriente): ", true, bancoFrances.estaDisponible("apertura de cuenta corriente", hoy, horaActual));
+		System.out.println("Test Finalizado !");
+	}
+
+}

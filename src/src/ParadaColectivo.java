@@ -1,3 +1,4 @@
+package src;
 
 public class ParadaColectivo extends POI {
 	private String empresa;

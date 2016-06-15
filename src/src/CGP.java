@@ -1,4 +1,6 @@
+package src;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class CGP extends POI{
@@ -13,6 +15,7 @@ public class CGP extends POI{
 	// ***************************************************************************
 	// Constructor
 	// ***************************************************************************
+	
 	public CGP(String nombre, double latitud, double longitud) {
 		super.nombre = nombre;
 		super.latitud = latitud;
@@ -46,6 +49,7 @@ public class CGP extends POI{
 	public void setServicios(ArrayList<Servicio> servicios) {
 		this.servicios = servicios;
 	}
+	
 	// ***************************************************************************
 	// Getters
 	// ***************************************************************************
@@ -76,13 +80,29 @@ public class CGP extends POI{
 	// ***************************************************************************
 	// Methods
 	// ***************************************************************************
-	public boolean estaDisponible(){
-		return true;
+	
+	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
+		// Pendiente: Hay que ver la logica
+		
+		boolean existe = false;
+ 	
+		for(Servicio unServicioDisponible : servicios)
+		{
+		    if(unServicioDisponible.getServicio().equals(unServicio)){
+		    	if (unServicioDisponible.estaDisponible(unDia, unaHora)){
+		    		existe = true;
+		    		break;
+		    	}
+		    }
+		}
+		
+		return existe;
 	}
-//	public boolean estaCercaMio(double latitud, double longitud){
-//		
-//		super.distancia(lat1, lon1, lat2, lon2)
-//	}
+	
+	//	public boolean estaCercaMio(double latitud, double longitud){
+	//		
+	//		super.distancia(lat1, lon1, lat2, lon2)
+	//	}
 
 	public String tipoPOI(){
 		// Pendiente: Hay que ver la logica
