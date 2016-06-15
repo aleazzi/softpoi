@@ -1,5 +1,7 @@
 package src;
 
+import java.util.Date;
+
 public class ParadaColectivo extends POI {
 	private String empresa;
 	private int numeroDeLinea;
@@ -39,7 +41,7 @@ public class ParadaColectivo extends POI {
 	// Methods
 	// ***************************************************************************
 	
-	public boolean estaDisponible(){
+	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
 		return true;
 	}
 //	public boolean estaCercaMio(double latitud, double longitud){
