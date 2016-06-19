@@ -10,6 +10,7 @@ public class CGP extends POI{
 	private String unidad;
 	private String codigoPostal;
 	private ArrayList<Servicio> servicios = new ArrayList<Servicio>();
+	private Comuna comuna;
 
 	
 	// ***************************************************************************
@@ -46,8 +47,13 @@ public class CGP extends POI{
 		this.codigoPostal= codigoPostal;
 	}
 	
-	public void setServicios(ArrayList<Servicio> servicios) {
-		this.servicios = servicios;
+	public void addServicios(Servicio unServicio) {
+		this.servicios.add(unServicio);
+	}
+	// setter de Servicios agrega de a un servicio a la vez a la coleccion
+	
+	public void setComuna(Comuna unaComuna){
+		this.comuna= unaComuna;
 	}
 	
 	// ***************************************************************************
@@ -77,6 +83,11 @@ public class CGP extends POI{
 	public ArrayList<Servicio> getServicios() {
 		return servicios;
 	}
+	
+	public Comuna getComuna(){
+		return comuna;
+	}
+	
 	// ***************************************************************************
 	// Methods
 	// ***************************************************************************
