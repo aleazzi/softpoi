@@ -47,7 +47,13 @@ public class DispositivoConsulta {
 		public String getZona(){
 			return zona;
 		}
-}
+		
 		// ***************************************************************************
 		// Methods
 		// ***************************************************************************
+		
+		public boolean estaAMenosDe(POI unPOI, double metros){
+			return (unPOI.distancia(this.latitud, this.longitud, unPOI.latitud, unPOI.longitud) < metros );
+		}
+}
+
