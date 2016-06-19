@@ -25,16 +25,16 @@ public class testBanco {
 		
 		// Creamos el objeto unDia de la clase Disponibilidad y le asignamos valores
 		Disponibilidad unDia = new Disponibilidad();
-		unDia.setDia("SABADO");
+		unDia.setDia("VIERNES");
 		unDia.agregarRangoHorario(rango1);
 		unDia.agregarRangoHorario(rango2);
 		
 		Disponibilidad otroDia = new Disponibilidad();
-		otroDia.setDia("DOMINGO");
+		otroDia.setDia("JUEVES");
 		otroDia.agregarRangoHorario(rango3);
 
 		Disponibilidad otroDia1 = new Disponibilidad();
-		otroDia1.setDia("MARTES");
+		otroDia1.setDia("DOMINGO");
 		otroDia1.agregarRangoHorario(rango3);
 		
 		// Creamos un servicio y le asignamos valores.
@@ -47,11 +47,10 @@ public class testBanco {
 		otroServicio.agregarDisponibilidad(unDia);
 		otroServicio.agregarDisponibilidad(otroDia);
 		
-		
 		// Creamos el objeto bancoFrances de la clase Banco.
 		Banco bancoFrances = new Banco("BANCO FRANCES", -34.603075, -58.381653);
-		bancoFrances.agregarServicio(unServicio);
-		bancoFrances.agregarServicio(otroServicio);
+		bancoFrances.setServicios(unServicio);
+		bancoFrances.setServicios(otroServicio);
 		
 		// Mostramos los datos cargados
 		//System.out.println("TipoPOI: " + bancoFrances.tipoPOI());
@@ -65,9 +64,9 @@ public class testBanco {
 		String horaActual = cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND);
 		
 		
+		System.out.println(hoy);
 		
-		
-		//System.out.println("Esta Disponible (apertura de cuenta corriente): " + bancoFrances.estaDisponible("apertura de cuenta corriente", hoy, horaActual));
+		System.out.println("Esta Disponible (apertura de cuenta corriente): " + bancoFrances.estaDisponible("apertura de cuenta corriente", hoy, horaActual));
 		assertEquals("Esta Disponible (apertura de cuenta corriente): ", true, bancoFrances.estaDisponible("apertura de cuenta corriente", hoy, horaActual));
 		System.out.println("Test Finalizado !");
 	}

@@ -1,27 +1,118 @@
 package src;
 import java.util.ArrayList;
-import maps.java.*; //propiedades-java build path-libraries-add external jars-MapsJavaJar
+import java.util.Date;
+
+//import maps.java.*; //propiedades-java build path-libraries-add external jars-MapsJavaJar
 	
 public abstract class POI {
 	protected String nombre;              //el nombre lo agregue por el metodo esValido()
 	protected double latitud;              
 	protected double longitud;              
-	//private String pais;                //aca no iria un objeto de tipo pais?
-	//private String provincia;			
-	//private String barrio;
-	//private String localidad;
-	//private String calle;
-	//private String calle_interseccion;
+	protected String pais;
+	protected String provincia;			
+	protected String barrio;
+	protected String localidad;
+	protected String calle;
+	protected String calle_interseccion;
+	protected ArrayList<Servicio> servicios = new ArrayList<Servicio>();
+	
+	// ***************************************************************************
+	// Setters
+	// ***************************************************************************
+
+	public void setLatitud(double latitud) {
+		this.latitud = latitud;
+	}
+	
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public void setLongitud(double longitud) {
+		this.longitud = longitud;
+	}
+	
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+	
+	public void setProvincia(String provincia) {
+		this.provincia = provincia;
+	}
+	
+	public void setBarrio(String barrio) {
+		this.barrio = barrio;
+	}
+	
+	public void setLocalidad(String localidad) {
+		this.localidad = localidad;
+	}
+	
+	public void setCalle(String calle) {
+		this.calle = calle;
+	}
+	
+	public void setCalle_interseccion(String calle_interseccion) {
+		this.calle_interseccion = calle_interseccion;
+	}
+	
+	public void setServicios(Servicio unServicio) {
+		this.servicios.add(unServicio);
+	}
+	
+	// ***************************************************************************
+	// Getters
+	// ***************************************************************************
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public double getLatitud() {
+		return latitud;
+	}
+
+	public double getLongitud() {
+		return longitud;
+	}
+	
+	public String getPais() {
+		return pais;
+	}
+
+	public String getProvincia() {
+		return provincia;
+	}
+
+	public String getBarrio() {
+		return barrio;
+	}
+
+	public String getLocalidad() {
+		return localidad;
+	}
+
+	public String getCalle() {
+		return calle;
+	}
+
+	public String getCalle_interseccion() {
+		return calle_interseccion;
+	}
+	
+	public ArrayList<Servicio> getServicios() {
+		return servicios;
+	}
+	
+	// ***************************************************************************
+	// Metodos
+	// ***************************************************************************
 	
 	public boolean esValido(){
 		return !(this.nombre == null || 
 				 this.latitud > 90 || this.latitud < -90 ||
 				 this.longitud > 180 || this.longitud < -180);
 	}
-	public boolean estaAMenosDe(POI otroPOI, double metros){
-		return (distancia(this.latitud, this.longitud, otroPOI.latitud, otroPOI.longitud) < metros );
-	}
-	
 	
 	/*
 	// Funcion que calcula la distancia entre 2 coordenadas (con el uso de internet)
@@ -70,6 +161,24 @@ public abstract class POI {
 		//System.out.println("Distancia: " + distancia);
 		return distancia;
 		
+	}
+	
+	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
+		// Pendiente: Hay que ver la logica
+		
+		boolean existe = false;
+ 	
+		for(Servicio unServicioDisponible : servicios)
+		{
+		    if(unServicioDisponible.getServicio().equals(unServicio)){
+		    	if (unServicioDisponible.estaDisponible(unDia, unaHora)){
+		    		existe = true;
+		    		break;
+		    	}
+		    }
+		}
+		
+		return existe;		
 	}
 	
 }

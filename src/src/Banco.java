@@ -1,6 +1,4 @@
 package src;
-import java.util.ArrayList;
-import java.util.Date;
 
 public class Banco extends POI {
 	
@@ -9,12 +7,11 @@ public class Banco extends POI {
 	private String departamento;
 	private String unidad;
 	private String codigoPostal;
-	private ArrayList<Servicio> servicios = new ArrayList<Servicio>();
-	
 
 	// ***************************************************************************
 	// Constructor
 	// ***************************************************************************
+	
 	public Banco(String nombre, double latitud, double longitud) {
 		super.nombre = nombre;
 		super.latitud = latitud;
@@ -44,10 +41,6 @@ public class Banco extends POI {
 	public void setCodigoPostal(String codigoPostal) {
 		this.codigoPostal = codigoPostal;
 	}
-	
-	public void setServicios(Servicio unServicio) {
-		this.servicios.add(unServicio);
-	}
 
 	
 	// ***************************************************************************
@@ -73,56 +66,10 @@ public class Banco extends POI {
 		return codigoPostal;
 	}
 	
-	public ArrayList<Servicio> getServicios() {
-		return servicios;
-	}
-	
 	
 	// ***************************************************************************
 	// Metodos
 	// ***************************************************************************
-	
-	public void agregarServicio(Servicio unServicio){
-		this.servicios.add(unServicio);
-	}
-	
-	/*
-	public boolean estaDisponible(Servicio unServicio, Date unDia, String unaHora){
-		// Pendiente: Hay que ver la logica
-		boolean existe = false; 
-		
-		for(Servicio unServicioDelBanco : servicios)
-		{
-		    if(unServicioDelBanco.getServicio().equals(unServicio.getServicio())){
-		    	if (unServicioDelBanco.estaDisponible(unDia, unaHora)){
-		    		existe = true;
-			    	break;
-		    	}
-		    }
-		}
-		
-		return existe;	
-	}
-	*/
-	
-	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
-		// Pendiente: Hay que ver la logica
-		
-		boolean existe = false;
- 	
-		for(Servicio unServicioDisponible : servicios)
-		{
-		    if(unServicioDisponible.getServicio().equals(unServicio)){
-		    	if (unServicioDisponible.estaDisponible(unDia, unaHora)){
-		    		existe = true;
-		    		break;
-		    	}
-		    }
-		}
-		
-		return existe;		
-	}
-
 
 	public boolean estaCercaMio(double latitud, double longitud){
 		if (super.distancia(this.latitud, this.longitud, latitud, longitud) < 500){
