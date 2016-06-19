@@ -46,9 +46,10 @@ public class CGP extends POI{
 		this.codigoPostal= codigoPostal;
 	}
 	
-	public void setServicios(ArrayList<Servicio> servicios) {
-		this.servicios = servicios;
+	public void addServicios(Servicio unServicio) {
+		this.servicios.add(unServicio);
 	}
+	// setter de Servicios agrega de a un servicio a la vez a la coleccion
 	
 	// ***************************************************************************
 	// Getters
