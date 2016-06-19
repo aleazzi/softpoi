@@ -11,14 +11,14 @@ public class Servidor {
 	// ***************************************************************************
 	// Setters
 	// ***************************************************************************
-		public void iniccolPOIs() {
-			List<POI> colPOIs = new ArrayList<POI>();
-		}
-	
-		public void iniccolAdmins() {
-			List<Administrador> colAdmins = new ArrayList<Administrador>();
+		public void addAdmin(Administrador unAdmin) {
+			this.colAdmins.add(unAdmin);
 		}
 		
+		public void cargarPOI(POI unPOI) {
+			this.colPOIs.add(unPOI);
+		}
+	
 	// ***************************************************************************
 	// Getters
 	// ***************************************************************************
@@ -45,19 +45,12 @@ public class Servidor {
 
 		}
 	
-	public void addAdmin(Administrador unAdmin) {
-		this.colAdmins.add(unAdmin);
-	}
 	
 	public void eliminarAdmin(Administrador unAdmin){
 		if(colAdmins.contains(unAdmin) == true){
 		colAdmins.remove(unAdmin);
 		}
 	}	
-	
-	public void cargarPOI(POI unPOI) {
-		this.colPOIs.add(unPOI);
-	}
 	
 	public void eliminarPOI(POI unPOI){
 		if(colPOIs.contains(unPOI) == true){
