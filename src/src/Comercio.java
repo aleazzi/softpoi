@@ -70,11 +70,11 @@ public class Comercio extends POI{
 		// ***************************************************************************
 		
 		
-		
-		public boolean estaDisponible(Servicio objServicio){
-			// Pendiente: Hay que ver la logica
-			return true;
-		}
+//      no corresponde este metodo, ya que tiene un horario
+//		public boolean estaDisponible(Servicio objServicio){
+//			// Pendiente: Hay que ver la logica
+//			return true;
+//		}
 		
 		public boolean estaCercaMio(){
 			// Pendiente: Hay que ver la logica

@@ -28,4 +28,8 @@ public class Rubro {
 	public int getRadioCercania() {
 		return radioCercania;
 	}
+	public Rubro(String unRubro, int radioCercania){
+		this.setRubro(unRubro);
+		this.setRadioCercania(radioCercania);
+	}
 }
