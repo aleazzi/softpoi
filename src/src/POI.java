@@ -109,7 +109,7 @@ public abstract class POI {
 	// ***************************************************************************
 	
 	public boolean esValido(){
-		return !(this.nombre == null || 
+		return !(this.nombre == null || this.nombre.trim().isEmpty() ||
 				 this.latitud > 90 || this.latitud < -90 ||
 				 this.longitud > 180 || this.longitud < -180);
 	}
@@ -163,20 +163,31 @@ public abstract class POI {
 		
 	}
 	
+    // estaDisponible("nombre del servicio",new Date(),"HH:MM:SS")
 	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
-		// Pendiente: Hay que ver la logica
-		
+
 		boolean existe = false;
- 	
-		for(Servicio unServicioDisponible : servicios)
-		{
-		    if(unServicioDisponible.getServicio().equals(unServicio)){
-		    	if (unServicioDisponible.estaDisponible(unDia, unaHora)){
-		    		existe = true;
-		    		break;
-		    	}
-		    }
+		//si se especifica un servicio, busca que el mismo este disponible, sino alcanza con que haya uno
+		if (unServicio.trim().isEmpty()){
+			for(Servicio unServicioDisponible : servicios)
+			{
+			   	if (unServicioDisponible.estaDisponible(unDia, unaHora)){
+			    		existe = true;
+			    		break;
+			   	}
+			}
+		}else{
+			for(Servicio unServicioDisponible : servicios)
+			{
+			    if(unServicioDisponible.getServicio().equals(unServicio)){
+			    	if (unServicioDisponible.estaDisponible(unDia, unaHora)){
+			    		existe = true;
+			    		break;
+			    	}
+			    }
+			}
 		}
+
 		
 		return existe;		
 	}
