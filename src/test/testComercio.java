@@ -18,7 +18,7 @@ public class testComercio {
 		// Prueba de clase Comercio 
 		// *********************************************************************************************
 		Rubro restaurante = new Rubro("Restaurante", 15);
-		RangoHorario rango1 = new RangoHorario("00:00:00", "23:59:59");
+		RangoHorario rango1 = new RangoHorario("00:00:00", "20:01:08");
 		Disponibilidad unDia = new Disponibilidad();
 		unDia.setDia("LUNES");
 		unDia.agregarRangoHorario(rango1);
@@ -37,21 +37,11 @@ public class testComercio {
 		System.out.println("comercio1.esValido()" + comercio1.esValido());
 		System.out.println("comercio2.esValido()" + comercio2.esValido());
 		System.out.println("comercio3.esValido()" + comercio3.esValido());
+		System.out.println(comercio1.estaDisponible("", FechayHora.fechaHoy(), FechayHora.horaHoy()) );
 		
-		
-//		System.out.println("parada1.estaDisponible(...)" + parada1.estaDisponible("", FechayHora.fechaHoy() , FechayHora.horaHoy()));
-//		System.out.println("parada2.estaDisponible(...)" + parada2.estaDisponible("", FechayHora.fechaHoy() , FechayHora.horaHoy()));
-//		System.out.println("parada3.estaDisponible(...)" + parada3.estaDisponible("", FechayHora.fechaHoy() , FechayHora.horaHoy()));
-//		System.out.println("parada4.estaDisponible(...)" + parada4.estaDisponible("", FechayHora.fechaHoy() , FechayHora.horaHoy()));
-	
 		assertEquals("comercio1.esValido(): ", true, comercio1.esValido());
 		assertEquals("comercio2.esValido(): ", true, comercio2.esValido());
 		assertEquals("comercio3.esValido(): ", false, comercio3.esValido());
-		
-//		assertEquals("parada1.estaDisponible(...): ", true, parada1.estaDisponible("", FechayHora.fechaHoy() , FechayHora.horaHoy()));
-//		assertEquals("parada2.estaDisponible(...): ", true, parada2.estaDisponible("", FechayHora.fechaHoy() , FechayHora.horaHoy()));
-//		assertEquals("parada3.estaDisponible(...): ", true, parada3.estaDisponible("", FechayHora.fechaHoy() , FechayHora.horaHoy()));
-//		assertEquals("parada4.estaDisponible(...): ", true, parada4.estaDisponible("", FechayHora.fechaHoy() , FechayHora.horaHoy()));
 		
 		System.out.println("Test Finalizado !");
 	}

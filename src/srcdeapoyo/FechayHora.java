@@ -14,7 +14,7 @@ public class FechayHora {
 		Date hoy = new Date();
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(hoy);
-		return cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND);
+		return cal.get(Calendar.HOUR_OF_DAY) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND);
 	}
 
 	
