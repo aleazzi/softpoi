@@ -51,6 +51,6 @@ public class ParadaColectivo extends POI {
 	
 	public String tipoPOI(){
 		// Pendiente: Hay que ver la logica
-		return this.getClass().getName();
+		return this.getClass().getName().substring(4);
 	}
 }
