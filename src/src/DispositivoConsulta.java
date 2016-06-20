@@ -1,4 +1,5 @@
 package src;
+import java.sql.Date;
 public class DispositivoConsulta {
 
 	private double longitud;
@@ -52,9 +53,16 @@ public class DispositivoConsulta {
 		// Methods
 		// ***************************************************************************
 		
-		public boolean estaAMenosDe(POI unPOI, double metros){
-			return (distancia(this.latitud, this.longitud, unPOI.latitud, unPOI.longitud) < metros );
-		}
+		//public boolean estaCercaMio(POI unPoi){
+		
+		//return (unPoi.estaCercaMio(unPoi.latitud, unPoi.longitud));			
+				
+		//}faltaria definir estacercamio en POI		
+		
+		//	public boolean estaDisponible(POI unPoi, Servicio unServicio, Date unaFecha, String unaHora){
+		//return (unPoi.estaDisponible(unServicio,unaFecha,unaHora));
+		//}
+		
 		
 		// Funcion que calcula la distancia entre 2 coordenadas (sin el uso de internet)
 		public static double distancia(double lat1, double lon1, double lat2, double lon2){
