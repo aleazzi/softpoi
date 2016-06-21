@@ -5,15 +5,15 @@ public class DispositivoConsulta {
 	private double longitud;
 	private double latitud;
 	private String zona;
-	//nuevo rodo
+	private String nombre;
 
-	
-	
-	
-	// *****no deberia tener un nombre?
-
-
-	
+	// Constructor
+	public DispositivoConsulta(String nombre, double latitud, double longitud, String zona) {
+		this.nombre = nombre;
+		this.latitud = latitud;
+		this.longitud = longitud;
+		this.zona = zona;
+	}
 		
 	// ***************************************************************************
 // Setters
