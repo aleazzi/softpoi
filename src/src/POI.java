@@ -107,6 +107,22 @@ public abstract class POI {
 	// ***************************************************************************
 	// Metodos
 	// ***************************************************************************
+	//VER SI ESTA BIEN
+	public boolean estaCercaDe(DispositivoConsulta unDispositivo){
+		
+		if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) < 5){// ver si son 5 cuadras, 500 mts o que...{
+			return true;
+			}	else
+			{
+				return false;
+			}
+		}
+	
+	
+	
+	
+	
+	
 	
 	public boolean esValido(){
 		return !(this.nombre == null || this.nombre.trim().isEmpty() ||
