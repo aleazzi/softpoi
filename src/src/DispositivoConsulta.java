@@ -53,11 +53,11 @@ public class DispositivoConsulta {
 		// Methods
 		// ***************************************************************************
 		
-		//public boolean estaCercaMio(POI unPoi){
+		public boolean estaCercaMio(POI unPoi){
 		
-		//return (unPoi.estaCercaMio(unPoi.latitud, unPoi.longitud));			
-				
-		//}faltaria definir estacercamio en POI		
+			return unPoi.estaCercaDe(this);
+		}
+	
 		
 		//	public boolean estaDisponible(POI unPoi, Servicio unServicio, Date unaFecha, String unaHora){
 		//return (unPoi.estaDisponible(unServicio,unaFecha,unaHora));
