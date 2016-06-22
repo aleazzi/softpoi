@@ -115,9 +115,5 @@ public class CGP extends POI{
 	//		super.distancia(lat1, lon1, lat2, lon2)
 	//	}
 
-	public String tipoPOI(){
-		// Pendiente: Hay que ver la logica
-		return "ni idea";
-	}
 	
 }
