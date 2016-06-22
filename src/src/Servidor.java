@@ -64,17 +64,18 @@ public class Servidor {
 	public ArrayList<POI> buscaPOI(String cadenadebusqueda){
 		ArrayList<POI> poiencontrados = new ArrayList<POI>();
 		for(POI unpoi : this.colPOIs){
-			if (unpoi.nombre.indexOf(cadenadebusqueda) > -1){
+			if (unpoi.nombre.toUpperCase().indexOf(cadenadebusqueda.toUpperCase()) > -1){
 				poiencontrados.add(unpoi);
 			}else{
 				for(Servicio unservicio : unpoi.servicios){
-					if (unservicio.getServicio().indexOf(cadenadebusqueda) > -1){
+					if (unservicio.getServicio().toUpperCase().indexOf(cadenadebusqueda.toUpperCase()) > -1){
 						poiencontrados.add(unpoi);
 						break;
 					}
 				}
-				if(((Comercio)unpoi).getRubro().getRubro().indexOf(cadenadebusqueda) > -1)
-					poiencontrados.add(unpoi);
+					if(unpoi.tipoPOI().equalsIgnoreCase("Comercio"))
+						if(((Comercio)(unpoi)).getRubro().getRubro().toUpperCase().indexOf(cadenadebusqueda.toUpperCase()) > -1)
+							poiencontrados.add(unpoi);
 			}
 				
 		}
