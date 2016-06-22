@@ -47,9 +47,6 @@ public class CGP extends POI{
 		this.codigoPostal= codigoPostal;
 	}
 	
-	public void addServicios(Servicio unServicio) {
-		this.servicios.add(unServicio);
-	}
 	// setter de Servicios agrega de a un servicio a la vez a la coleccion
 	
 	public void setComuna(Comuna unaComuna){
@@ -110,10 +107,15 @@ public class CGP extends POI{
 		return existe;
 	}
 	
-	//	public boolean estaCercaMio(double latitud, double longitud){
-	//		
-	//		super.distancia(lat1, lon1, lat2, lon2)
-	//	}
-
+	
+	public boolean estaCercaDe(DispositivoConsulta unDispositivo){
+		
+		if (unDispositivo.getLatitud()<= this.comuna.getLimNorte() && unDispositivo.getLatitud()>= this.comuna.getLimSur() && unDispositivo.getLongitud()>= this.comuna.getLimEste() && unDispositivo.getLongitud()<= this.comuna.getLimOeste()) {// ver si son 5 cuadras, 500 mts o que...{
+			return true;
+			}	else
+			{
+				return false;
+			}
+		}
 	
 }
