@@ -53,4 +53,15 @@ public class ParadaColectivo extends POI {
 		// Pendiente: Hay que ver la logica
 		return this.getClass().getName().substring(4);
 	}
+	
+	public boolean estaCercaDe(DispositivoConsulta unDispositivo){
+		
+		if (super.distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) <100) {// ver si son 5 cuadras, 500 mts o que...{
+			return true;
+			}	else
+			{
+				return false;
+			}
+		}
+	
 }
