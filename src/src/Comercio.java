@@ -65,6 +65,9 @@ public class Comercio extends POI{
 			return codigoPostal;
 		}
 		
+		public Rubro getRubro(){
+			return rubro;
+		}
 		// ***************************************************************************
 		// Metodos
 		// ***************************************************************************

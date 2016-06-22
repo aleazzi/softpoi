@@ -1,10 +1,7 @@
 package test;
-	import org.junit.Test;
-	import static org.junit.Assert.*;
-	
-	import src.*;
-	import java.util.Calendar;
-	import java.util.Date;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import src.*;
 
 public class testBanco {
 
@@ -57,17 +54,9 @@ public class testBanco {
 		//System.out.println("BANCO: " + bancoFrances.nombre);
 		//System.out.println("Longitud: " + bancoFrances.longitud);
 		//System.out.println("Latitud: " + bancoFrances.latitud);
-		
-		Date hoy = new Date();
-    	Calendar cal = Calendar.getInstance();
-    	cal.setTime(hoy);
-		String horaActual = cal.get(Calendar.HOUR) + ":" + cal.get(Calendar.MINUTE) + ":" + cal.get(Calendar.SECOND);
-		
-		
-		System.out.println(hoy);
-		
-		System.out.println("Esta Disponible (apertura de cuenta corriente): " + bancoFrances.estaDisponible("apertura de cuenta corriente", hoy, horaActual));
-		assertEquals("Esta Disponible (apertura de cuenta corriente): ", true, bancoFrances.estaDisponible("apertura de cuenta corriente", hoy, horaActual));
+	
+		System.out.println("Esta Disponible (apertura de cuenta corriente): " + bancoFrances.estaDisponible("apertura de cuenta corriente", FechayHora.fechaHoy(), FechayHora.horaHoy()));
+		assertEquals("Esta Disponible (apertura de cuenta corriente): ", true, bancoFrances.estaDisponible("apertura de cuenta corriente", FechayHora.fechaHoy(), FechayHora.horaHoy()));
 		System.out.println("Test Finalizado !");
 	}
 
