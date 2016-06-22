@@ -5,7 +5,7 @@ import java.util.Date;
 //import maps.java.*; //propiedades-java build path-libraries-add external jars-MapsJavaJar
 	
 public abstract class POI {
-	protected String nombre;              //el nombre lo agregue por el metodo esValido()
+	protected String nombre;
 	protected double latitud;              
 	protected double longitud;              
 	protected String pais;
@@ -107,27 +107,25 @@ public abstract class POI {
 	// ***************************************************************************
 	// Metodos
 	// ***************************************************************************
-	//VER SI ESTA BIEN
-	public boolean estaCercaDe(DispositivoConsulta unDispositivo){
-		
-		if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) < 5){// ver si son 5 cuadras, 500 mts o que...{
+	
+	public boolean estaCercaDe(DispositivoConsulta unDispositivo){	
+		if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) < 500){ 
 			return true;
-			}	else
-			{
-				return false;
-			}
+		}else{
+			return false;
 		}
-	
-	
-	
-	
-	
+	}
 	
 	
 	public boolean esValido(){
 		return !(this.nombre == null || this.nombre.trim().isEmpty() ||
 				 this.latitud > 90 || this.latitud < -90 ||
 				 this.longitud > 180 || this.longitud < -180);
+	}
+	
+	
+	public String tipoPOI(){
+		return this.getClass().getName().substring(4);
 	}
 	
 	/*
@@ -156,14 +154,28 @@ public abstract class POI {
 	}
 	*/
 	
-	// Funcion que calcula la distancia entre 2 coordenadas (sin el uso de internet)
-	public static double distancia(double lat1, double lon1, double lat2, double lon2){
-		// En millas
-		//double radioTierra = 3958.75;
+	// Funcion que calcula la distancia entre 2 coordenadas (la unidad de medida es opcional, por defecto calcula en metros)
+	public static double distancia(double lat1, double lon1, double lat2, double lon2, String unidadMedida){
 		
-		// En kilometros
-		double radioTierra = 6371;
+		double radioTierra;
 		
+		switch (unidadMedida){		
+			case "millas":
+				radioTierra = 3958.75;
+				break;
+			
+			case "kilometros":
+				radioTierra = 6370.99;
+				break;
+				
+			case "metros":
+				radioTierra = 6370990.56;
+				break;
+				
+			default:
+				radioTierra = 6370990.56;
+		}
+			
 		double dLat = Math.toRadians(lat2 - lat1);
 		double dLon = Math.toRadians(lon2 - lon1);
 		
@@ -174,17 +186,40 @@ public abstract class POI {
 		double aux2 = 2 * Math.atan2(Math.sqrt(aux1), Math.sqrt(1 - aux1));
 		
 		double distancia = radioTierra * aux2;
-		//System.out.println("Distancia: " + distancia);
+		
 		return distancia;
 		
 	}
+	
+	// Funcion que calcula la distancia entre 2 coordenadas
+	public static double distancia(double lat1, double lon1, double lat2, double lon2){
+		
+		double radioTierra = 6370990.56;
+
+		double dLat = Math.toRadians(lat2 - lat1);
+		double dLon = Math.toRadians(lon2 - lon1);
+		
+		double senoLat = Math.sin(dLat / 2);
+		double senoLon = Math.sin(dLon / 2);
+		
+		double aux1 = Math.pow(senoLat, 2) + Math.pow(senoLon, 2) * Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2));
+		double aux2 = 2 * Math.atan2(Math.sqrt(aux1), Math.sqrt(1 - aux1));
+		
+		double distancia = radioTierra * aux2;
+		
+		return distancia;
+		
+	}
+	
 	
     // estaDisponible("nombre del servicio",new Date(),"HH:MM:SS")
 	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
 
 		boolean existe = false;
-		//si se especifica un servicio, busca que el mismo este disponible, sino alcanza con que haya uno
+		
+		// Si no se envia un servicio por parametro, entonces buscamos un servicio cualquiera que cumpla con la fecha y horario
 		if (unServicio.trim().isEmpty()){
+					
 			for(Servicio unServicioDisponible : servicios)
 			{
 			   	if (unServicioDisponible.estaDisponible(unDia, unaHora)){
@@ -193,6 +228,7 @@ public abstract class POI {
 			   	}
 			}
 		}else{
+		// Si se paso un servicio como parametro, entonces buscamos que exista tal servicio para la fecha y hora enviada por parametro.
 			for(Servicio unServicioDisponible : servicios)
 			{
 			    if(unServicioDisponible.getServicio().equals(unServicio)){
@@ -202,9 +238,9 @@ public abstract class POI {
 			    	}
 			    }
 			}
+			
 		}
 
-		
 		return existe;		
 	}
 	
