@@ -79,14 +79,14 @@ public class Comercio extends POI{
 //			return true;
 //		}
 		
-		public boolean estaCercaMio(){
-			// Pendiente: Hay que ver la logica
-			return true;
-		}
-
-		public String tipoPOI(){
-			// Pendiente: Hay que ver la logica
-			return "ni idea";
-		}
+		public boolean estaCercaDe(DispositivoConsulta unDispositivo){
+			
+			if (super.distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) < rubro.getRadioCercania()) {
+				return true;
+				}	else
+				{
+					return false;
+				}
+			}
 
 }
