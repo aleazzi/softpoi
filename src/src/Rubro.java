@@ -2,19 +2,27 @@ package src;
 
 public class Rubro {
 	
-	private String rubro;
-	private int radioCercania;
+	private String nombre;
+	private double radioCercania;
+	
+	// ***************************************************************************
+	// Constructor
+	// ***************************************************************************
+	public Rubro(String unNombre, double unRadioCercania){
+		this.nombre = unNombre;
+		this.radioCercania = unRadioCercania;
+	}
 	
 	// ***************************************************************************
 	// Setters
 	// ***************************************************************************
 
-	public void setRubro(String rubro){
-		this.rubro = rubro;
+	public void setRubro(String unNombre){
+		this.nombre = unNombre;
 	}
 		
-	public void setRadioCercania(int radioCercania){
-		this.radioCercania= radioCercania;
+	public void setRadioCercania(double unRadioCercania){
+		this.radioCercania= unRadioCercania;
 	}
 	
 	// ***************************************************************************
@@ -22,14 +30,11 @@ public class Rubro {
 	// ***************************************************************************
 	
 	public String getRubro(){
-		return rubro;
+		return nombre;
 	}
 	
-	public int getRadioCercania() {
+	public double getRadioCercania() {
 		return radioCercania;
 	}
-	public Rubro(String unRubro, int radioCercania){
-		this.setRubro(unRubro);
-		this.setRadioCercania(radioCercania);
-	}
+
 }
