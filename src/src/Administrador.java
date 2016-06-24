@@ -38,21 +38,21 @@ public class Administrador {
 	
 	public boolean modificarPOI(POI unPOI){
 	// Pendiente: Hay que ver la logica
-	return true;
+		return true;
 	}
 	
 	public boolean eliminarPOI(POI unPOI){
 		serv.eliminarPOI(unPOI);
-	return true;
+		return true;
 	}
 	
 	public boolean obtenerEstadisticas(){
 	// Pendiente: Hay que ver la logica
-	return true;
+		return true;
 	}
 	
 	public boolean loguin(){
 		serv.loguin(serv.getcolAdmins(), this);
-	return true;
+		return true;
 	}	
 }

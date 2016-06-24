@@ -207,8 +207,7 @@ public abstract class POI {
 		
 		double distancia = radioTierra * aux2;
 		
-		return distancia;
-		
+		return distancia;		
 	}
 	
 	

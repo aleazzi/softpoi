@@ -49,11 +49,9 @@ public class ParadaColectivo extends POI {
 		
 		if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) <100) {
 			return true;
-			}	
-		else
-			{
-				return false;
-			}
+		}else{
+			return false;
 		}
+	}
 	
 }
