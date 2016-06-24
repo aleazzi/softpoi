@@ -54,12 +54,9 @@ public class Disponibilidad {
 	
 	public boolean estaDisponible(Date unDia, String horaActual){
 		boolean existe = false;
-		
 		String diaSemana = diaDeLaSemana(unDia);
-		//System.out.println(diaSemana);
 		
-		if(this.dia.equals(diaSemana)){
-			
+		if(this.dia.equals(diaSemana)){		
 			for(RangoHorario unRangoHorario : horarios)
 			{				
 				if(unRangoHorario.estaDisponible(horaActual)){
@@ -68,9 +65,7 @@ public class Disponibilidad {
 			    }
 			}
 		}
-		
 		return existe;
 	}
-	
 	
 }

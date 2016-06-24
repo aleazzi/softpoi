@@ -41,19 +41,18 @@ public class Servidor {
 				return true;
 		}
 		return false;
-
-		}
+	}
 	
 	
 	public void eliminarAdmin(Administrador unAdmin){
 		if(colAdmins.contains(unAdmin) == true){
-		colAdmins.remove(unAdmin);
+			colAdmins.remove(unAdmin);
 		}
 	}	
 	
 	public void eliminarPOI(POI unPOI){
 		if(colPOIs.contains(unPOI) == true){
-		colPOIs.remove(unPOI);
+			colPOIs.remove(unPOI);
 		}
 	}	
 	
@@ -73,9 +72,9 @@ public class Servidor {
 						break;
 					}
 				}
-					if(unpoi.tipoPOI().equalsIgnoreCase("Comercio"))
-						if(((Comercio)(unpoi)).getRubro().getRubro().toUpperCase().indexOf(cadenadebusqueda.toUpperCase()) > -1)
-							poiencontrados.add(unpoi);
+				if (unpoi.tipoPOI().equalsIgnoreCase("Comercio"))
+					if (((Comercio)(unpoi)).getRubro().getRubro().toUpperCase().indexOf(cadenadebusqueda.toUpperCase()) > -1)
+						poiencontrados.add(unpoi);
 			}
 				
 		}

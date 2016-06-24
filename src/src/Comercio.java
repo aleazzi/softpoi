@@ -76,11 +76,9 @@ public class Comercio extends POI{
 			
 			if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) < rubro.getRadioCercania()) {
 				return true;
-				}	
-			else
-				{
-					return false;
-				}
+			}else{
+				return false;
 			}
+		}
 
 }

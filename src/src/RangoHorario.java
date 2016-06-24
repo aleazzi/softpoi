@@ -66,12 +66,11 @@ public class RangoHorario {
 				//System.out.println("No Disponible");
 				return false;
 			}
-	   } catch (ParseException ex) {
+		}catch (ParseException ex) {
 	       //Logger.getLogger(Main2.class.getName()).log(Level.SEVERE, null, ex);
 		   System.out.println("Posee errores");
 	       return false;
-	   }
-		
+		}
 	 }
 	 
 }
