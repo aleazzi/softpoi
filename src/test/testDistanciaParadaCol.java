@@ -1,13 +1,15 @@
 package test;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
 import src.DispositivoConsulta;
 import src.ParadaColectivo;
 
-public class testDistancia {
+public class testDistanciaParadaCol {
 
-	@Test
+@Test
 	
 	public void methDistanciaParada() {
 		System.out.println("Iniciando testDistancia Dispositivo - POI");

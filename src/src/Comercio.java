@@ -9,8 +9,8 @@ public class Comercio extends POI{
 	private Rubro rubro;
 	
 	// ***************************************************************************
-		// Constructor
-		// ***************************************************************************
+	// Constructor
+	// ***************************************************************************
 		public Comercio(String nombre, double latitud, double longitud, Rubro unRubro) {
 			super.nombre = nombre;
 			super.latitud = latitud;
@@ -18,10 +18,9 @@ public class Comercio extends POI{
 			this.rubro = unRubro;
 		}
 
-		
-		// ***************************************************************************
-		// Setters
-		// ***************************************************************************
+	// ***************************************************************************
+	// Setters
+	// ***************************************************************************
 		public void setAltura(int altura) {
 			this.altura = altura;
 		}
@@ -42,9 +41,9 @@ public class Comercio extends POI{
 			this.codigoPostal = codigoPostal;
 		}
 		
-		// ***************************************************************************
-		// Getters
-		// ***************************************************************************
+	// ***************************************************************************
+	// Getters
+	// ***************************************************************************
 		public int getAltura() {
 			return altura;
 		}
@@ -68,16 +67,10 @@ public class Comercio extends POI{
 		public Rubro getRubro(){
 			return rubro;
 		}
-		// ***************************************************************************
-		// Metodos
-		// ***************************************************************************
 		
-		
-//      no corresponde este metodo, ya que tiene un horario
-//		public boolean estaDisponible(Servicio objServicio){
-//			// Pendiente: Hay que ver la logica
-//			return true;
-//		}
+	// ***************************************************************************
+	// Metodos
+	// ***************************************************************************
 		
 		public boolean estaCercaDe(DispositivoConsulta unDispositivo){
 			

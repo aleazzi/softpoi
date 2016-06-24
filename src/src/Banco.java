@@ -78,12 +78,6 @@ public class Banco extends POI {
 		return false;
 	}
 
-	/*
-	public String tipoPOI(){
-		return getClass().getName().substring(4);
-	}
-	*/
-
 	public Servicio dameUnServicio(String servicio){
 		// esto es de prueba
 		return servicios.get(0);

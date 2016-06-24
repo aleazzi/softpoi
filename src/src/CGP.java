@@ -114,11 +114,9 @@ public class CGP extends POI{
 				unDispositivo.getLongitud()>= this.comuna.getLimEste() && 
 				unDispositivo.getLongitud()<= this.comuna.getLimOeste()) {
 			return true;
-			}	
-		else
-			{
-				return false;
-			}
+		}else{
+			return false;
 		}
+	}
 	
 }

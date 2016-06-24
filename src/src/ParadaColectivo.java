@@ -44,16 +44,10 @@ public class ParadaColectivo extends POI {
 	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
 		return true;
 	}
-
-	
-	public String tipoPOI(){
-		// Pendiente: Hay que ver la logica
-		return this.getClass().getName().substring(4);
-	}
 	
 	public boolean estaCercaDe(DispositivoConsulta unDispositivo){
 		
-		if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) <100) {// ver si son 5 cuadras, 500 mts o que...{
+		if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) <100) {
 			return true;
 			}	
 		else
