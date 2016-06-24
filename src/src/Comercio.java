@@ -81,9 +81,10 @@ public class Comercio extends POI{
 		
 		public boolean estaCercaDe(DispositivoConsulta unDispositivo){
 			
-			if (super.distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) < rubro.getRadioCercania()) {
+			if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) < rubro.getRadioCercania()) {
 				return true;
-				}	else
+				}	
+			else
 				{
 					return false;
 				}

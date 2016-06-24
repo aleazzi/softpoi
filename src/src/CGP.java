@@ -90,7 +90,6 @@ public class CGP extends POI{
 	// ***************************************************************************
 	
 	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
-		// Pendiente: Hay que ver la logica
 		
 		boolean existe = false;
  	
@@ -110,9 +109,13 @@ public class CGP extends POI{
 	
 	public boolean estaCercaDe(DispositivoConsulta unDispositivo){
 		
-		if (unDispositivo.getLatitud()<= this.comuna.getLimNorte() && unDispositivo.getLatitud()>= this.comuna.getLimSur() && unDispositivo.getLongitud()>= this.comuna.getLimEste() && unDispositivo.getLongitud()<= this.comuna.getLimOeste()) {// ver si son 5 cuadras, 500 mts o que...{
+		if (unDispositivo.getLatitud()<= this.comuna.getLimNorte() && 
+				unDispositivo.getLatitud()>= this.comuna.getLimSur() && 
+				unDispositivo.getLongitud()>= this.comuna.getLimEste() && 
+				unDispositivo.getLongitud()<= this.comuna.getLimOeste()) {
 			return true;
-			}	else
+			}	
+		else
 			{
 				return false;
 			}

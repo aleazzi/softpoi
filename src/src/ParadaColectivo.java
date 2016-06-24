@@ -44,10 +44,7 @@ public class ParadaColectivo extends POI {
 	public boolean estaDisponible(String unServicio, Date unDia, String unaHora){
 		return true;
 	}
-//	public boolean estaCercaMio(double latitud, double longitud){
-//		
-//		super.distancia(lat1, lon1, lat2, lon2)
-//	}
+
 	
 	public String tipoPOI(){
 		// Pendiente: Hay que ver la logica
@@ -56,9 +53,10 @@ public class ParadaColectivo extends POI {
 	
 	public boolean estaCercaDe(DispositivoConsulta unDispositivo){
 		
-		if (super.distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) <100) {// ver si son 5 cuadras, 500 mts o que...{
+		if (distancia(unDispositivo.getLatitud(),unDispositivo.getLongitud(),this.latitud,this.longitud) <100) {// ver si son 5 cuadras, 500 mts o que...{
 			return true;
-			}	else
+			}	
+		else
 			{
 				return false;
 			}
