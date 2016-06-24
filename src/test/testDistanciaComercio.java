@@ -15,13 +15,13 @@ public class testDistanciaComercio {
 		System.out.println("Iniciando testDistancia Dispositivo - POI tipo Comercio");
 	
 		//creo DispositivoConsulta
-		DispositivoConsulta dispositivo3 = new DispositivoConsulta("disp Caballito1", 100.0, 150.0, "Caballito Norte");
+		DispositivoConsulta dispositivo3 = new DispositivoConsulta("disp Caballito1", 0.350224555, 0.699552205, "Caballito Norte");
 	
 		//creo un Rubro para el Comercio
-		Rubro rubroMerceria = new Rubro ("Merceria", 400.0);
+		Rubro rubroMerceria = new Rubro ("Merceria", 500.0);
 	
 		//creo un POI Comercio de prueba
-		Comercio merceriaJose = new Comercio("Merceria Jose",100.1,150.0,rubroMerceria);
+		Comercio merceriaJose = new Comercio("Merceria Jose",0.350219707,0.699629775,rubroMerceria);
 	
 	
 		assertEquals("Verificamos que el Comercio este cerca del dispositivo", true, dispositivo3.estaCercaMio(merceriaJose));
