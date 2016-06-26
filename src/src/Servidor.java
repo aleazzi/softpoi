@@ -56,9 +56,6 @@ public class Servidor {
 		}
 	}	
 	
-	public void modificarPOI(POI unPOI, String atributo, String nuevoValor){
-		//unPOI.atributo = nuevoValor;		
-	}
 
 	public ArrayList<POI> buscaPOI(String cadenadebusqueda){
 		ArrayList<POI> poiencontrados = new ArrayList<POI>();
