@@ -60,7 +60,7 @@ public class Servidor {
 	public ArrayList<POI> buscaPOI(String cadenadebusqueda){
 		ArrayList<POI> poiencontrados = new ArrayList<POI>();
 		for(POI unpoi : this.colPOIs){
-			if (unpoi.nombre.toUpperCase().indexOf(cadenadebusqueda.toUpperCase()) > -1){
+			if (unpoi.getNombre().toUpperCase().indexOf(cadenadebusqueda.toUpperCase()) > -1){
 				poiencontrados.add(unpoi);
 			}else{
 				for(Servicio unservicio : unpoi.servicios){

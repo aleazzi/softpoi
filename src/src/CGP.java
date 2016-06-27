@@ -50,7 +50,12 @@ public class CGP extends POI{
 	// setter de Servicios agrega de a un servicio a la vez a la coleccion
 	
 	public void setComuna(Comuna unaComuna){
-		this.comuna= unaComuna;
+		if (latitud  <= unaComuna.getLimNorte() && 
+			latitud  >= unaComuna.getLimSur()   && 
+			longitud >= unaComuna.getLimEste()  && 
+			longitud <= unaComuna.getLimOeste()){
+		this.comuna = unaComuna;
+		}
 	}
 	
 	// ***************************************************************************

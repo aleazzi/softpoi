@@ -71,13 +71,6 @@ public class Banco extends POI {
 	// Metodos
 	// ***************************************************************************
 
-	public boolean estaCercaMio(double latitud, double longitud){
-		if (super.distancia(this.latitud, this.longitud, latitud, longitud) < 500){
-			return true;
-		}
-		return false;
-	}
-
 	public Servicio dameUnServicio(String servicio){
 		// esto es de prueba
 		return servicios.get(0);
